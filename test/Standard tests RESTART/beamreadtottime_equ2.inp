@@ -1,0 +1,34 @@
+**
+**   Changes:
+**   2026/05/20: Reading from frd file.
+**
+**   Structure: cantilever beam.
+**   Test objective: restart capability (reading part).
+**   Before running this example, please run example beamwrite
+**   and copy beamwritetottime_equ2.rout to beamreadtottime_equ2.rin
+**
+*RESTART,READ
+** ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*STEP,NLGEOM
+***AMPLITUDE, NAME=EQUTOTTIME, EQUATION
+*AMPLITUDE, NAME=EQUTOTTIME, EQUATION, TIME=TOTAL TIME
+1.5*T*T*T
+-0.5*T*T
+*STATIC
+1.,1., 1.E-05, 0.1
+*DLOAD,AMPLITUDE=EQUTOTTIME
+29, P2, -200.000000 
+30, P2, -200.000000 
+31, P2, -200.000000 
+32, P2, -200.000000
+*NODE FILE
+U,
+*EL FILE 
+S, E
+*END STEP
+
+
+
+
+
+

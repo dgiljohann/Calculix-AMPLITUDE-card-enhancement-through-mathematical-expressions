@@ -1,0 +1,97 @@
+**
+** Cube block
+**
+*Heading
+Cube with single element per edge, Date: 02/14/2026, Unit system: MM_TON_S_C
+**
+** Nodes +++++++++++++++++++++++++++++++++++++++++++++++++++
+**
+*Node, NSET=NALL
+1, 0.00000000E+000, 0.00000000E+000, 0.00000000E+000
+2, 1.00000000E+000, 0.00000000E+000, 0.00000000E+000
+3, 1.00000000E+000, 1.00000000E+000, 0.00000000E+000
+4, 0.00000000E+000, 1.00000000E+000, 0.00000000E+000
+5, 0.00000000E+000, 0.00000000E+000, 1.00000000E+000
+6, 1.00000000E+000, 0.00000000E+000, 1.00000000E+000
+7, 1.00000000E+000, 1.00000000E+000, 1.00000000E+000
+8, 0.00000000E+000, 1.00000000E+000, 1.00000000E+000
+**
+** Elements ++++++++++++++++++++++++++++++++++++++++++++++++
+**
+*Element, Type=C3D8R, Elset=EALL
+1, 1, 2, 3, 4, 5, 6, 7, 8
+**
+** Node sets +++++++++++++++++++++++++++++++++++++++++++++++
+**
+*Nset, Nset=ZSYMM
+1, 2, 3, 4
+*Nset, Nset=YSYMM
+1, 2, 5, 6
+*Nset, Nset=XSYMM
+1, 4, 5, 8
+*Nset, Nset=NDLOADZDIR
+5, 6, 7, 8
+*Nset, Nset=NURESULTS
+5,
+**
+** Element sets ++++++++++++++++++++++++++++++++++++++++++++
+**
+*Elset, Elset=EALL
+1
+*Elset, Elset=ERESULTS
+1
+*Elset, ELSET=SDLOADZDIR_S2
+1
+*Elset, Elset=Pressure-1_S2
+1
+*Elset, Elset=EDLOADZDIR
+1
+**
+** Surfaces ++++++++++++++++++++++++++++++++++++++++++++++++
+**
+*Surface, Name=SDLOADZDIR, Type=Element
+SDLOADZDIR_S2, S2
+**
+**
+** Sections ++++++++++++++++++++++++++++++++++++++++++++++++
+**
+*Solid section, Elset=EALL, Material=STEEL
+**
+** MATERIALS
+** 
+*MATERIAL, NAME=STEEL
+*ELASTIC
+210000.,0.3
+** 
+*BOUNDARY
+XSYMM,1,1
+YSYMM,2,2
+ZSYMM,3,3
+**
+*AMPLITUDE, NAME=RAMP
+0.0,0.0,1.0,1.0
+**
+** Steps +++++++++++++++++++++++++++++++++++++++++++++++++++
+**
+*Step, Inc=10000
+*Static
+0.005, 1., 1.E-05, 0.02
+**
+** Name: DLOADZDIR, constant pressure in z-direction:
+*Dload, AMPLITUDE=RAMP
+SDLOADZDIR_S2, P2, -1.E+04
+**
+*EL PRINT, ELSET=ERESULTS
+S, E, SDV
+*NODE PRINT, TOTALS=ONLY, NSET=ZSYMM
+RF,
+*NODE PRINT, NSET=NURESULTS
+U,
+**
+*NODE FILE
+U,
+*EL FILE
+S, E, SDV
+** S, E,
+**
+*End step

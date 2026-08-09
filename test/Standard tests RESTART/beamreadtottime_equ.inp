@@ -1,0 +1,32 @@
+**
+**   Changes:
+**   2026/04/20: Writing into frd file.
+**
+**   Structure: cantilever beam.
+**   Test objective: restart capability (reading part).
+**   Before running this example, please run example beamwrite
+**   and copy beamwrite.rout to beamread.rin
+**
+*RESTART,READ
+*AMPLITUDE, NAME=A1EQU, EQUATION
+1.5*T*T*T
+-0.5*T*T
+*STEP,NLGEOM
+*STATIC
+1.,1.
+*DLOAD,AMPLITUDE=A1EQU
+29, P2, -200.000000 
+30, P2, -200.000000 
+31, P2, -200.000000 
+32, P2, -200.000000
+*NODE FILE
+U,
+*EL FILE 
+S, E
+*END STEP
+
+
+
+
+
+
