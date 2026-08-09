@@ -23,10 +23,10 @@ Compiling and validating the development
 
 The attached code version is based on the official ccx version 2.23. To use the enhanced code for your own testing and validation please
 
-    Copy the files below the src directory of the attached zip file to a directory with your own ccx code of version 2.23. This will replace some source files, add one header file and 2 new C files.
-    Add the 2 new C files equamplitude.c and tinyexpr.c to your makefile.
-    Compile and link the code according to your standard compilation process to generate a new ccx version with this development.
-    Run some tests. The directory Tests of the attachment includes a subset of the executed tests to validate the new development. The inp files whose name include the substring „_equ" contain the examples with the equation strings. The counterpart files without the substring „_equ" are used to compare the equation string results vs. todays ccx standard *AMPLITUDE functionality. The available test documentation has been summarized in file Test_equ_strings_20260520.pdf
+1) Copy the files below the src directory of the attached zip file to a directory with your own ccx code of version 2.23. This will replace some source files, add one header file and 2 new C files.
+2) Add the 2 new C files equamplitude.c and tinyexpr.c to your makefile.
+3) Compile and link the code according to your standard compilation process to generate a new ccx version with this development.
+3) Run some tests. The directory Tests of the attachment includes a subset of the executed tests to validate the new development. The inp files whose name include the substring „_equ" contain the examples with the equation strings. The counterpart files without the substring „_equ" are used to compare the equation string results vs. todays ccx standard *AMPLITUDE functionality. The available test documentation has been summarized in file Test_equ_strings_20260520.pdf
 
 Using equation string based amplitudes within your ccx projects
 
