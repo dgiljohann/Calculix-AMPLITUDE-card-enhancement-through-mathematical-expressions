@@ -1,4 +1,4 @@
-# Introduction to equation based amplitudes with Calculix FEM
+# Introduction to mathematical expression based amplitudes in input files of Calculix FEM
 Repository enhances the open source FEM program Calculix ccx (Version 2.23, see https://github.com/Dhondtguido/CalculiX)  *AMPLITUDE functionality through an additional parameter „EQUATION" to enter a mathematical expression for a named amplitude in the ccx input file. Example:
 
 *AMPLITUDE, NAME=CUBIC, EQUATION
@@ -7,7 +7,7 @@ T*T*T
 
 +1.5*T*T
 
-would create a polynomial amplitude named CUBIC over time T for use within the ccx inp file. The provided code belong to the ccx version 2.23 only!
+would create a polynomial amplitude named CUBIC over time T for use within the ccx inp (=input file with the model) file. The provided code belong to the ccx version 2.23 only!
 
 # Benefits of equation string based *AMPLITUDE cards in ccx
 
